@@ -3,13 +3,21 @@ package br.edu.infnet.appbiblioteca.model.domain;
 import br.edu.infnet.appbiblioteca.model.exceptions.FrequenciaInvalidaException;
 import br.edu.infnet.appbiblioteca.model.exceptions.QuantidadeInvalidaException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TJogo")
 public class Manga extends Midia {
 	
 	private int quantidadeCapitulos;
 	private int quantidadeVolumes;
 	private String frequenciaEstimadaLancamento;
 	
-		
+	public Manga(){
+
+	}
+
 	public Manga(int id, String nome, String genero, boolean baseadoOutraMidia, double nota) {
 		super(id, nome, genero, baseadoOutraMidia, nota);
 	}

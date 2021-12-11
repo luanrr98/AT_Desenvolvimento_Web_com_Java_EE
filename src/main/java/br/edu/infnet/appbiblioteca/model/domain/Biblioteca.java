@@ -1,17 +1,28 @@
 package br.edu.infnet.appbiblioteca.model.domain;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+@Entity
+@Table(name = "TBiblioteca")
 public class Biblioteca {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String visibilidade;
 	private String titulo;
 	private LocalDateTime dataHoraCriacao;
-	
+	@ManyToOne
+	@JoinColumn(name = "idResponsavel")
 	private Responsavel responsavel;
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Midia> midias;
+	@OneToOne
+	@JoinColumn(name = "idRequerente")
+	private Requerente requerente;
 	
 	public Biblioteca() {
 		this.dataHoraCriacao = LocalDateTime.now();
@@ -54,6 +65,29 @@ public class Biblioteca {
 		return dataHoraCriacao;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public LocalDateTime getDataHoraCriacao() {
+		return dataHoraCriacao;
+	}
+
+	public void setDataHoraCriacao(LocalDateTime dataHoraCriacao) {
+		this.dataHoraCriacao = dataHoraCriacao;
+	}
+
+	public Requerente getRequerente() {
+		return requerente;
+	}
+
+	public void setRequerente(Requerente requerente) {
+		this.requerente = requerente;
+	}
 
 	@Override
 	public String toString() {

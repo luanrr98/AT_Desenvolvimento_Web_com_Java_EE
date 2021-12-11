@@ -2,12 +2,20 @@ package br.edu.infnet.appbiblioteca.model.domain;
 
 import br.edu.infnet.appbiblioteca.model.exceptions.PlataformaInvalidaException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TJogo")
 public class Jogo extends Midia {
 
 	private String plataforma;
 	private String engine;
 	private  boolean multijogador;
-	
+
+	public Jogo(){
+
+	}
 	public Jogo(int id, String nome, String genero, boolean baseadoOutraMidia, double nota) {
 		super(id, nome, genero, baseadoOutraMidia, nota);
 	}

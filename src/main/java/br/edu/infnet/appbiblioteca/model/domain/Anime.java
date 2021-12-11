@@ -3,12 +3,20 @@ package br.edu.infnet.appbiblioteca.model.domain;
 import br.edu.infnet.appbiblioteca.model.exceptions.QuantidadeInvalidaException;
 import br.edu.infnet.appbiblioteca.model.exceptions.TipoAnimacaoInvalidaException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TAnime")
 public class Anime extends Midia {
 	
 	private int numeroEpisodios;
 	private int numeroTemporadas;
 	private String tipoAnimacao;
 	
+	public Anime(){
+
+	}
 
 	public Anime(int id, String nome, String genero, boolean baseadoOutraMidia, double nota) {
 		super(id, nome, genero, baseadoOutraMidia, nota);
