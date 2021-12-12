@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=ISO-8859-1" pageEncoding="ISO-8859-1" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Biblioteca de Midias</title>
 </head>
@@ -16,7 +16,7 @@
 
         <div class="form-group">
             <label>Nome:</label>
-            <input type="text" class="form-control" value="JoÃ£o Bardock" name="nome" required>
+            <input type="text" class="form-control" value="João Bardock" name="nome" required>
         </div>
 
         <div class="form-group">

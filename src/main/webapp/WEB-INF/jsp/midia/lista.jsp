@@ -1,10 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=ISO-8859-1" pageEncoding="ISO-8859-1" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Biblioteca de Midias</title>
 </head>
@@ -14,7 +13,7 @@
 <div class="container">
     <c:if test="${not empty msg}">
         <div class="alert alert-danger">
-            <h5> Falha na Exclus√£o: ${msg}</h5>
+            <h5> Falha na Exclus„o: ${msg}</h5>
         </div>
     </c:if>
 
