@@ -43,7 +43,7 @@ public class BibliotecaLoader implements ApplicationRunner {
 
         Biblioteca biblioteca = new Biblioteca();
         biblioteca.setTitulo("Biblioteca Principal Loader");
-        biblioteca.setVisibilidade("Pública");
+        biblioteca.setVisibilidade("Publica");
         biblioteca.setResponsavel(responsavel);
         biblioteca.setRequerente(requerente);
         biblioteca.setMidias(midias);

@@ -48,7 +48,7 @@
                     <td>${b.id}</td>
                     <td>${b.titulo}</td>
                     <td>${b.visibilidade}</td>
-                    <td>${b.dataHoraCriacao}</td>
+                    <td>${b.dataHoraCriacaoFormatada}</td>
                     <td>${b.requerente.nome}</td>
                     <td>${b.midias.size()}</td>
 

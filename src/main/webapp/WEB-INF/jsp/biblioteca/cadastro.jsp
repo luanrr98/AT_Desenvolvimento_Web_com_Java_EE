@@ -30,8 +30,7 @@
                 <c:forEach var="m" items="${midias}">
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="checkbox" name="midiaIds" class="form-check-input" value="${m.id}"
-                                   name="titulo"> ${m.nome}
+                            <input type="checkbox" name="midiaIds" class="form-check-input" value="${m.id}" name="titulo"> ${m.nome}
                         </label>
                     </div>
                 </c:forEach>

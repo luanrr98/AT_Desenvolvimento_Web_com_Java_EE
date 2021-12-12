@@ -15,6 +15,7 @@ public class Biblioteca {
     private String visibilidade;
     private String titulo;
     private LocalDateTime dataHoraCriacao;
+    private String dataHoraCriacaoFormatada;
     @ManyToOne
     @JoinColumn(name = "idResponsavel")
     private Responsavel responsavel;
@@ -25,7 +26,10 @@ public class Biblioteca {
     private Requerente requerente;
 
     public Biblioteca() {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy-HH:mm");
+
         this.dataHoraCriacao = LocalDateTime.now();
+        this.dataHoraCriacaoFormatada = this.dataHoraCriacao.format(formato);
     }
 
     public String getVisibilidade() {
@@ -62,6 +66,7 @@ public class Biblioteca {
     }
 
     public LocalDateTime getDataCriacao() {
+
         return dataHoraCriacao;
     }
 
@@ -87,6 +92,14 @@ public class Biblioteca {
 
     public void setRequerente(Requerente requerente) {
         this.requerente = requerente;
+    }
+
+    public String getDataHoraCriacaoFormatada() {
+        return dataHoraCriacaoFormatada;
+    }
+
+    public void setDataHoraCriacaoFormatada(String dataHoraCriacaoFormatada) {
+        this.dataHoraCriacaoFormatada = dataHoraCriacaoFormatada;
     }
 
     @Override
