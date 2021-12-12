@@ -16,12 +16,12 @@
 
         <div class="form-group">
             <label>Nome:</label>
-            <input type="text" class="form-control" value="João Bardock" name="nome" required>
+            <input type="text" class="form-control" value="Pedro Bardock" name="nome" required>
         </div>
 
         <div class="form-group">
             <label>Email:</label>
-            <input type="email" class="form-control" value="jbardock@mail.com" name="email" required>
+            <input type="email" class="form-control" value="pbardock@mail.com" name="email" required>
         </div>
 
         <div class="form-group">

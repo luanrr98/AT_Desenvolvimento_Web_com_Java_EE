@@ -14,6 +14,7 @@ public class Responsavel {
     private String email;
     private int idade;
     private String senha;
+    private Boolean admin;
 
     @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "idResponsavel")
@@ -111,6 +112,14 @@ public class Responsavel {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
 
     @Override

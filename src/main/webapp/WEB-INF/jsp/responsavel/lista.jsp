@@ -30,6 +30,9 @@
                 <th>Requerentes</th>
                 <th>Midias</th>
                 <th>Bibliotecas</th>
+                <c:if test="${resp.admin}">
+                    <td></td>
+                </c:if>
 
 
             </tr>
@@ -44,6 +47,7 @@
                     <td>${r.requerentes.size()}</td>
                     <td>${r.midias.size()}</td>
                     <td>${r.bibliotecas.size()}</td>
+                    <c:if test="${resp.admin}">
                     <td><a href="/responsavel/excluir/${r.id}">
                         <c:choose>
                             <c:when test="${resp.id != r.id}">
@@ -51,7 +55,7 @@
                             </c:when>
                         </c:choose>
                     </a></td>
-
+                    </c:if>
                 </tr>
             </c:forEach>
             </tbody>

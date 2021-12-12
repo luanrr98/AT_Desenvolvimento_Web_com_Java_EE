@@ -33,6 +33,7 @@ public class ResponsavelLoader implements ApplicationRunner {
         responsavel.setEmail("enma@mail.com");
         responsavel.setSenha("123");
         responsavel.setIdade(100000);
+        responsavel.setAdmin(true);
 
         responsavelSevice.incluir(responsavel);
 
