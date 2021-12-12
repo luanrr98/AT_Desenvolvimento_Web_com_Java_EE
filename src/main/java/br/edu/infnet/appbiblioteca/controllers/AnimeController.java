@@ -6,13 +6,18 @@ import br.edu.infnet.appbiblioteca.model.service.AnimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import java.sql.SQLIntegrityConstraintViolationException;
 
 @Controller
 public class AnimeController {
 
-  @Autowired
-  private AnimeService animeService;
+    @Autowired
+    private AnimeService animeService;
 
 
     @GetMapping(value = "/anime")
@@ -27,15 +32,20 @@ public class AnimeController {
     }
 
     @GetMapping(value = "/anime/excluir/{id}")
-    public String excluir(@PathVariable Integer id) {
+    public String excluir(Model model,@PathVariable Integer id,@SessionAttribute("resp") Responsavel responsavel) {
+       try {
+           animeService.excluir(id);
 
-            animeService.excluir(id);
+       }catch (Exception e) {
+           model.addAttribute("msg", "Não foi possível realizar a exclusão deste Anime!");
+       }
 
-        return "redirect:/animes";
+        return telaLista(model, responsavel);
     }
 
+
     @PostMapping(value = "/anime/incluir")
-    public String incluir(Model model, Anime anime, @RequestParam String[] midiaIds, @SessionAttribute("resp") Responsavel responsavel) {
+    public String incluir(Model model, Anime anime, @SessionAttribute("resp") Responsavel responsavel) {
         anime.setResponsavel(responsavel);
         animeService.incluir(anime);
         model.addAttribute("nome", anime.getNome());

@@ -6,13 +6,16 @@ import br.edu.infnet.appbiblioteca.model.service.JogoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 @Controller
 public class JogoController {
 
-  @Autowired
-  private JogoService jogoService;
+    @Autowired
+    private JogoService jogoService;
 
 
     @GetMapping(value = "/jogo")
@@ -27,15 +30,19 @@ public class JogoController {
     }
 
     @GetMapping(value = "/jogo/excluir/{id}")
-    public String excluir(@PathVariable Integer id) {
-
+    public String excluir(Model model,@PathVariable Integer id,@SessionAttribute("resp") Responsavel responsavel) {
+        try {
             jogoService.excluir(id);
 
-        return "redirect:/jogos";
+        }catch (Exception e) {
+            model.addAttribute("msg", "Não foi possível realizar a exclusão deste Jogo!");
+        }
+
+        return telaLista(model, responsavel);
     }
 
     @PostMapping(value = "/jogo/incluir")
-    public String incluir(Model model, Jogo jogo, @RequestParam String[] midiaIds, @SessionAttribute("resp") Responsavel responsavel) {
+    public String incluir(Model model, Jogo jogo, @SessionAttribute("resp") Responsavel responsavel) {
         jogo.setResponsavel(responsavel);
         jogoService.incluir(jogo);
         model.addAttribute("nome", jogo.getNome());

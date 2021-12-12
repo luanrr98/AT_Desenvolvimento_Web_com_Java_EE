@@ -8,110 +8,104 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Midia {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String nome;
-	private String genero;
-	private boolean baseadoOutraMidia;
-	private double nota;
-	@ManyToOne
-	@JoinColumn(name ="idResponsavel")
-	private Responsavel responsavel;
-	@ManyToMany(mappedBy ="midias")
-	private List<Biblioteca> bibliotecas;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String nome;
+    private String genero;
+    private boolean baseadoOutraMidia;
+    private double nota;
+    @ManyToOne
+    @JoinColumn(name = "idResponsavel")
+    private Responsavel responsavel;
+    @ManyToMany(mappedBy = "midias")
+    private List<Biblioteca> bibliotecas;
 
-	
-	
-	public Midia(){
 
-	}
+    public Midia() {
 
-	public Midia(int id, String nome, String genero, boolean baseadoOutraMidia, double nota) {
-		this.id = id;
-		this.nome = nome;
-		this.genero = genero;
-		this.baseadoOutraMidia = baseadoOutraMidia;
-		this.nota = nota;
-	}
-	
-	public abstract int quantidadeDiasProducao();
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Midia(String nome, String genero, boolean baseadoOutraMidia, double nota) {
+        this.nome = nome;
+        this.genero = genero;
+        this.baseadoOutraMidia = baseadoOutraMidia;
+        this.nota = nota;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public abstract int quantidadeDiasProducao();
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getGenero() {
-		return genero;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
+    public String getGenero() {
+        return genero;
+    }
 
-	public boolean isBaseadoOutraMidia() {
-		return baseadoOutraMidia;
-	}
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 
-	public void setBaseadoOutraMidia(boolean baseadoOutraMidia) {
-		this.baseadoOutraMidia = baseadoOutraMidia;
-	}
+    public boolean isBaseadoOutraMidia() {
+        return baseadoOutraMidia;
+    }
 
-	public double getNota() {
-		return nota;
-	}
+    public void setBaseadoOutraMidia(boolean baseadoOutraMidia) {
+        this.baseadoOutraMidia = baseadoOutraMidia;
+    }
 
-	public void setNota(double nota) {
-		this.nota = nota;
-	}
+    public double getNota() {
+        return nota;
+    }
 
-	public Responsavel getResponsavel() {
-		return responsavel;
-	}
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
 
-	public void setResponsavel(Responsavel responsavel) {
-		this.responsavel = responsavel;
-	}
+    public Responsavel getResponsavel() {
+        return responsavel;
+    }
 
-	public List<Biblioteca> getBibliotecas() {
-		return bibliotecas;
-	}
+    public void setResponsavel(Responsavel responsavel) {
+        this.responsavel = responsavel;
+    }
 
-	public void setBibliotecas(List<Biblioteca> bibliotecas) {
-		this.bibliotecas = bibliotecas;
-	}
+    public List<Biblioteca> getBibliotecas() {
+        return bibliotecas;
+    }
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		
-		sb.append(id);
-		sb.append(";");
-		sb.append(nome);
-		sb.append(";");
-		sb.append(genero);
-		sb.append(";");
-		sb.append(baseadoOutraMidia);
-		sb.append(";");
-		sb.append(nota);
-		
-		return sb.toString();
-	}
+    public void setBibliotecas(List<Biblioteca> bibliotecas) {
+        this.bibliotecas = bibliotecas;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(id);
+        sb.append(";");
+        sb.append(nome);
+        sb.append(";");
+        sb.append(genero);
+        sb.append(";");
+        sb.append(baseadoOutraMidia);
+        sb.append(";");
+        sb.append(nota);
+
+        return sb.toString();
+    }
 
 }

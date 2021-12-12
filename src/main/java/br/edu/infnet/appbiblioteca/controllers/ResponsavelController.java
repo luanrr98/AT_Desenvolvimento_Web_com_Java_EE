@@ -21,24 +21,24 @@ public class ResponsavelController {
     private EnderecoService enderecoService;
 
     @GetMapping(value = "/responsavel")
-    public String telaCadastro(){
+    public String telaCadastro() {
         return "responsavel/cadastro";
     }
 
     @GetMapping(value = "/responsaveis")
-    public String telaLista(Model model){
+    public String telaLista(Model model) {
         model.addAttribute("listaResponsaveis", responsavelService.obterTodos());
         return "responsavel/lista";
     }
 
     @GetMapping(value = "/responsavel/excluir/{id}")
-    public String excluir(@PathVariable Integer id){
+    public String excluir(@PathVariable Integer id) {
         responsavelService.excluir(id);
         return "redirect:/responsaveis";
     }
 
     @PostMapping(value = "/responsavel/incluir")
-    public String incluir (Model model, Responsavel responsavel, Endereco endereco){
+    public String incluir(Model model, Responsavel responsavel, Endereco endereco) {
         responsavel.setEndereco(endereco);
         responsavelService.incluir(responsavel);
 
@@ -46,7 +46,7 @@ public class ResponsavelController {
     }
 
     @PostMapping(value = "/cep")
-    public String cep(Model model, @RequestParam String cep){
+    public String cep(Model model, @RequestParam String cep) {
         model.addAttribute("endereco", enderecoService.obterViaCep(cep));
         return "responsavel/cadastro";
     }

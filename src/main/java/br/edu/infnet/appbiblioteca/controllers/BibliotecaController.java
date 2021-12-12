@@ -27,7 +27,7 @@ public class BibliotecaController {
 
     @GetMapping(value = "/biblioteca")
     public String telaCadastro(Model model, @SessionAttribute("resp") Responsavel responsavel) {
-        model.addAttribute("bibliotecas", midiaService.obterTodos(responsavel));
+        model.addAttribute("midias", midiaService.obterTodos(responsavel));
         model.addAttribute("requerentes", requerenteService.obterTodos(responsavel));
         return "biblioteca/cadastro";
     }
@@ -41,7 +41,7 @@ public class BibliotecaController {
     @GetMapping(value = "/biblioteca/excluir/{id}")
     public String excluir(@PathVariable Integer id) {
 
-            bibliotecaService.excluir(id);
+        bibliotecaService.excluir(id);
 
         return "redirect:/bibliotecas";
     }
@@ -50,8 +50,8 @@ public class BibliotecaController {
     public String incluir(Model model, Biblioteca biblioteca, @RequestParam String[] midiaIds, @SessionAttribute("resp") Responsavel responsavel) {
         List<Midia> listaMidias = new ArrayList<Midia>();
         biblioteca.setResponsavel(responsavel);
-        for(String id: midiaIds){
-            Midia midia= midiaService.obterPorId(Integer.valueOf(id));
+        for (String id : midiaIds) {
+            Midia midia = midiaService.obterPorId(Integer.valueOf(id));
             listaMidias.add(midia);
         }
         biblioteca.setMidias(listaMidias);

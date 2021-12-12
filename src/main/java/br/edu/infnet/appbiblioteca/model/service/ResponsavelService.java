@@ -15,11 +15,11 @@ public class ResponsavelService {
     private ResponsavelRepository responsavelRepository;
 
     public Responsavel autenticar(String email, String senha) {
-        return responsavelRepository.autenticar(email,senha);
+        return responsavelRepository.autenticar(email, senha);
     }
 
     public List<Responsavel> obterTodos() {
-        return  responsavelRepository.findAll(Sort.by(Sort.Direction.ASC, "email"));
+        return responsavelRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
     }
 
     public void incluir(Responsavel responsavel) {
@@ -28,5 +28,9 @@ public class ResponsavelService {
 
     public void excluir(Integer id) {
         responsavelRepository.deleteById(id);
+    }
+
+    public int obterQtd() {
+        return (int) responsavelRepository.count();
     }
 }

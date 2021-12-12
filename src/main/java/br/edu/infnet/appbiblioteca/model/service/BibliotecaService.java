@@ -30,4 +30,8 @@ public class BibliotecaService {
     public void incluir(Biblioteca biblioteca) {
         bibliotecaRepository.save(biblioteca);
     }
+
+    public int obterQtd() {
+        return (int) bibliotecaRepository.count();
+    }
 }

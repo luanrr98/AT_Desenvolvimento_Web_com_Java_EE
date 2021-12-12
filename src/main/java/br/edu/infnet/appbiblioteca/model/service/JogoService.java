@@ -14,6 +14,7 @@ public class JogoService {
 
     @Autowired
     private JogoRepository jogoRepository;
+
     public List<Jogo> obterTodos(Responsavel responsavel) {
         return jogoRepository.findAll(responsavel.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }
@@ -25,7 +26,12 @@ public class JogoService {
     public void incluir(Jogo jogo) {
         jogoRepository.save(jogo);
     }
-    public Jogo obterPorId(Integer id){
+
+    public Jogo obterPorId(Integer id) {
         return jogoRepository.findById(id).orElse(null);
+    }
+
+    public int obterQtd() {
+        return (int) jogoRepository.count();
     }
 }

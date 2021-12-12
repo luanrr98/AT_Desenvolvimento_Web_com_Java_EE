@@ -14,6 +14,7 @@ public class MangaService {
 
     @Autowired
     private MangaRepository mangaRepository;
+
     public List<Manga> obterTodos(Responsavel responsavel) {
         return mangaRepository.findAll(responsavel.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }
@@ -25,7 +26,12 @@ public class MangaService {
     public void incluir(Manga manga) {
         mangaRepository.save(manga);
     }
-    public Manga obterPorId(Integer id){
+
+    public Manga obterPorId(Integer id) {
         return mangaRepository.findById(id).orElse(null);
+    }
+
+    public int obterQtd() {
+        return (int) mangaRepository.count();
     }
 }

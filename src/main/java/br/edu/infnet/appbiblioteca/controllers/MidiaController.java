@@ -16,7 +16,6 @@ public class MidiaController {
     private MidiaService midiaService;
 
 
-
     @GetMapping(value = "/midias")
     public String telaLista(Model model, @SessionAttribute("resp") Responsavel responsavel) {
         model.addAttribute("listaMidias", midiaService.obterTodos(responsavel));
@@ -24,11 +23,15 @@ public class MidiaController {
     }
 
     @GetMapping(value = "/midia/excluir/{id}")
-    public String excluir(@PathVariable Integer id) {
-
+    public String excluir(Model model,@PathVariable Integer id,@SessionAttribute("resp") Responsavel responsavel) {
+        try {
             midiaService.excluir(id);
 
-        return "redirect:/midias";
+        }catch (Exception e) {
+            model.addAttribute("msg", "Não foi possível realizar a exclusão desta Midia!");
+        }
+
+        return telaLista(model, responsavel);
     }
 
 

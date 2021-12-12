@@ -11,11 +11,12 @@ public class Requerente {
     private Integer id;
     private String nome;
     private String email;
+    private String apelido;
     @ManyToOne
     @JoinColumn(name = "idResponsavel")
     private Responsavel responsavel;
 
-    public Requerente(){
+    public Requerente() {
 
     }
 
@@ -24,6 +25,7 @@ public class Requerente {
         this.nome = nome;
         this.email = email;
     }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -65,5 +67,13 @@ public class Requerente {
 
     public void setResponsavel(Responsavel responsavel) {
         this.responsavel = responsavel;
+    }
+
+    public String getApelido() {
+        return apelido;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
     }
 }

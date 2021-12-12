@@ -20,7 +20,7 @@ public class RequerenteService {
     }
 
     public List<Requerente> obterTodos(Responsavel responsavel) {
-        return  requerenteRepository.findAll(responsavel.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+        return requerenteRepository.findAll(responsavel.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }
 
     public void incluir(Requerente requerente) {
@@ -29,5 +29,9 @@ public class RequerenteService {
 
     public void excluir(Integer id) {
         requerenteRepository.deleteById(id);
+    }
+
+    public int obterQtd() {
+        return (int) requerenteRepository.count();
     }
 }

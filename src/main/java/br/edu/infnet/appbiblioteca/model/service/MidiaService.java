@@ -16,11 +16,11 @@ public class MidiaService {
     private MidiaRepository midiaRepository;
 
     public List<Midia> obterTodos(Responsavel responsavel) {
-        return midiaRepository.findAll(responsavel.getId(), Sort.by(Sort.Direction.ASC,"nome"));
+        return midiaRepository.findAll(responsavel.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }
 
     public Midia obterPorId(Integer id) {
-        return  midiaRepository.findById(id).orElse(null);
+        return midiaRepository.findById(id).orElse(null);
 
     }
 
@@ -28,5 +28,9 @@ public class MidiaService {
     public void excluir(Integer id) {
         midiaRepository.deleteById(id);
 
+    }
+
+    public int obterQtd() {
+        return (int) midiaRepository.count();
     }
 }

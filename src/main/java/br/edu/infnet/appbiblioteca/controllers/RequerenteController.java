@@ -25,7 +25,7 @@ public class RequerenteController {
 
     @GetMapping(value = "/requerentes")
     public String telaLista(Model model, @SessionAttribute("resp") Responsavel responsavel) {
-        model.addAttribute("listaResponsaveis", requerenteService.obterTodos(responsavel));
+        model.addAttribute("listaRequerentes", requerenteService.obterTodos(responsavel));
         return "requerente/lista";
     }
 
@@ -34,7 +34,7 @@ public class RequerenteController {
         try {
             requerenteService.excluir(id);
 
-        }catch(Exception e){
+        } catch (Exception e) {
             model.addAttribute("msg", "Não foi possível realizar a exclusão deste Requerente!");
         }
         return this.telaLista(model, responsavel);
