@@ -40,6 +40,11 @@ public class AcessoController {
         return "index";
     }
 
+    @GetMapping(value = "/disc")
+    public String telaHome() {
+        return "disc";
+    }
+
     @GetMapping(value = "/login")
     public String telaLogin() {
         return "login";
