@@ -1,7 +1,6 @@
 package br.edu.infnet.appbiblioteca.model.domain;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Table(name = "TEndereco")
 @Entity

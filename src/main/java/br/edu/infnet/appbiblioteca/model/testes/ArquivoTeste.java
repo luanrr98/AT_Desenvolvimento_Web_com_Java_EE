@@ -1,23 +1,14 @@
 package br.edu.infnet.appbiblioteca.model.testes;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import br.edu.infnet.appbiblioteca.model.domain.Anime;
-import br.edu.infnet.appbiblioteca.model.domain.Biblioteca;
-import br.edu.infnet.appbiblioteca.model.domain.Jogo;
-import br.edu.infnet.appbiblioteca.model.domain.Manga;
-import br.edu.infnet.appbiblioteca.model.domain.Midia;
-import br.edu.infnet.appbiblioteca.model.domain.Responsavel;
+import br.edu.infnet.appbiblioteca.model.domain.*;
 import br.edu.infnet.appbiblioteca.model.exceptions.FrequenciaInvalidaException;
 import br.edu.infnet.appbiblioteca.model.exceptions.PlataformaInvalidaException;
 import br.edu.infnet.appbiblioteca.model.exceptions.QuantidadeInvalidaException;
 import br.edu.infnet.appbiblioteca.model.exceptions.TipoAnimacaoInvalidaException;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ArquivoTeste {
 	

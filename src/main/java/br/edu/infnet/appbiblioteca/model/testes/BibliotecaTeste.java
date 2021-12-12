@@ -1,17 +1,12 @@
 package br.edu.infnet.appbiblioteca.model.testes;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.edu.infnet.appbiblioteca.model.domain.Anime;
-import br.edu.infnet.appbiblioteca.model.domain.Biblioteca;
-import br.edu.infnet.appbiblioteca.model.domain.Jogo;
-import br.edu.infnet.appbiblioteca.model.domain.Manga;
-import br.edu.infnet.appbiblioteca.model.domain.Midia;
-import br.edu.infnet.appbiblioteca.model.domain.Responsavel;
+import br.edu.infnet.appbiblioteca.model.domain.*;
 import br.edu.infnet.appbiblioteca.model.exceptions.FrequenciaInvalidaException;
 import br.edu.infnet.appbiblioteca.model.exceptions.QuantidadeInvalidaException;
 import br.edu.infnet.appbiblioteca.model.exceptions.TipoAnimacaoInvalidaException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BibliotecaTeste {
 	public static void main(String[] args) {

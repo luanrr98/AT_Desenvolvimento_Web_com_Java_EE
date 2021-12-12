@@ -1,7 +1,6 @@
 package br.edu.infnet.appbiblioteca.model.repository;
 
 import br.edu.infnet.appbiblioteca.model.domain.Jogo;
-import br.edu.infnet.appbiblioteca.model.domain.Midia;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
