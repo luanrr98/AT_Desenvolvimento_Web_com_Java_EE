@@ -12,7 +12,7 @@
 
 <div class="container">
 
-    <a href="/jogo">Adicionar Manga</a>
+    <a href="/jogo">Adicionar Jogo</a>
     <hr>
     <c:if test="${not empty msg}">
         <div class="alert alert-danger">
